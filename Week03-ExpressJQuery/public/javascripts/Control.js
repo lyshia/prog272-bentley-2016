@@ -15,11 +15,11 @@ var MyObject = (function() {
     }
 
     function showItems() {
-        $("#myList").append('<li>' + 'item01' + '</li>');
+        $("#myList").append('<li>' + 'item01' + '</li>'e);
         $("#myList").append('<li>' + 'item02' + '</li>');
         $("#myList").append('<li>' + 'item03' + '</li>');
     };
-
+    
     var marie = {
         "firstName": "Marie",
         "lastName": "Curie",
@@ -27,13 +27,12 @@ var MyObject = (function() {
         "country": "France"
     };
 
-    function showMarie() {
-        for (var property in marie) {
-            if (marie.hasOwnProperty(property)) {
-                $("#marieList").append('<li>' + marie[property] + '</li>');
-            }
+    function showMarie(){
+    for (var property in marie) {
+        if (marie.hasOwnProperty(property)) {
+            $("#myList").append('<li>' + marie[property] + '</li>');
         }
-    };
+    }
 
 
 
