@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         pkg: '<json:package.json>',
 
         jshint: {
-            files: ['**/*.js'],
+            files: ['**/*.js', '!**/platforms/**', '!**/plugins/**'],
 
             options: {
                 ignores: [
@@ -53,7 +53,6 @@ module.exports = function(grunt) {
         },
 
         getUrl: function(accessToken) {
-            'use strict';
 
             var baseUrl = 'https://api-ssl.bitly.com/v3/user/link_history';
             var params = '?access_token=';
