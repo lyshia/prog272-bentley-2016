@@ -1,0 +1,20 @@
+{
+  "name": "Week04-ExpressRoutes",
+  "description": "routes in express",
+  "main": "bin/www",
+  "authors": [
+    "lyshia <alyshiabentley@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lyshia/prog272-bentley-2016",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

@@ -39,18 +39,32 @@ module.exports = function(grunt) {
         },
 
         jscs: {
-            src: '**/*.js',
+            src: ['**/*.js', '!spec/bitly-links.js', '!**/platforms/**', '!**/plugins/**'],
             options: {
                 config: '.jscsrc'
             }
         },
 
         'jsbeautifier': {
-            files: ['**/*.js', '!**/node_modules/**', '!**/components/**'],
+            files: ['**/*.js', '!**/node_modules/**', '!**/components/**', '!**/platforms/**', '!**/plugins/**'],
             options: {
                 'indentSize': 4
             }
-        }
+        },
+
+        getUrl: function(accessToken) {
+            'use strict';
+
+            var baseUrl = 'https://api-ssl.bitly.com/v3/user/link_history';
+            var params = '?access_token=';
+
+            if (accessToken === -1) {
+                return 'data/bitly-links.json';
+            } else {
+                var url = baseUrl + params;
+                return url += accessToken;
+            }
+        },
 
     });
 

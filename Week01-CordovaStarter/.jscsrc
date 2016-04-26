@@ -4,4 +4,6 @@
     "excludeFiles": ["**/node_modules/**", "**/components/**"],
     "requireCamelCaseOrUpperCaseIdentifiers": false,
     "maximumLineLength": 120
+
 }
+ 
