@@ -1,7 +1,7 @@
 {
-  "name": "Week04-ExpressRoutes",
-  "description": "routes in express",
-  "main": "bin/www",
+  "name": "week04-expressroutes",
+  "description": "",
+  "main": "",
   "authors": [
     "lyshia <alyshiabentley@gmail.com>"
   ],
