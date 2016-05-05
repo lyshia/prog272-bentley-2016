@@ -15,6 +15,18 @@ router.get('/read', function(request, response) {
   ]);
 });
 
+
+router.get('/add', function(request, response){
+  console.log(" add was called");
+  console.log(" the parameters are" + request.query);
+  console.log("operator a is " + request.query.operatorA);
+  console.log("operator b is " + request.query.operatorB);
+  var operatorA = parseInt(request.query.operatorA);
+  var operatorB = parseInt(request.query.operatorB);
+  var sum ;
+  response.send( {sum: operatorA + operatorB});
+})
+
 router.get('/readDerp', function(request, response) {
   console.log("derpy was called into the server");
   response.send([

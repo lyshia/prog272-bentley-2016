@@ -4,6 +4,24 @@ $(document).ready(function() {
     $('#read').click(read);
     $('#readJson').click(callReadJson);
     $('#readDerp').click(readDerp);
+    $('#add').click(add);
+
+    function add()
+    {
+        var operatorA = $('#operatorA').val();
+        var operatorB = $('#operatorB').val();
+        console.log("oPerators: " + operatorA + " and " + operatorB);
+        var response = {
+            operatorA: operatorA,
+            operatorB: operatorB
+             };
+
+        $.getJSON('/add', response,function(sum)
+        {
+            console.log("sum:" + sum);
+            $('#display').html(JSON.stringify(sum.sum));
+        })
+    }
 
     function read() {
         console.log('callRead called');
