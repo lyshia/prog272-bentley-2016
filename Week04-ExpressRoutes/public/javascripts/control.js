@@ -11,12 +11,12 @@ $(document).ready(function() {
         var operatorA = $('#operatorA').val();
         var operatorB = $('#operatorB').val();
         console.log("oPerators: " + operatorA + " and " + operatorB);
-        var response = {
+        var requestQuery = {
             operatorA: operatorA,
             operatorB: operatorB
              };
 
-        $.getJSON('/add', response,function(sum)
+        $.getJSON('/add', requestQuery,function(sum)
         {
             console.log("sum:" + sum);
             $('#display').html(JSON.stringify(sum.sum));
