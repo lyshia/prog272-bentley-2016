@@ -8,3 +8,5 @@ Alyshia  Bentley
 - [Angular Solar Starter Assignment][solar-start]
 
 [solar-start]: http://www.ccalvert.net/books/CloudNotes/Assignments/AngularSolarStarter.html
+
+text text text
