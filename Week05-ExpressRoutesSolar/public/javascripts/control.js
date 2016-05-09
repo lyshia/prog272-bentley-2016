@@ -8,6 +8,7 @@ $(document).ready(function() {
                 console.log(response);
             })
             .done(function() {
+
                 console.log("second success");
             })
             .fail(function(a, b, c) {
