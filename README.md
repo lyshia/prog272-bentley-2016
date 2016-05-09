@@ -3,7 +3,7 @@ Alyshia  Bentley
 =======
 # prog272-Bentley-2016
 
-## Week 05 Branch
+## Week 06 Branch
 
 - [Angular Solar Starter Assignment][solar-start]
 
