@@ -6,6 +6,7 @@ $(document).ready(function() {
     function doThis() {
         $.getJSON('/renewables', function(response) {
                 console.log(response);
+                $('#debug').html(JSON.stringify(response, null,4));
             })
             .done(function() {
 
