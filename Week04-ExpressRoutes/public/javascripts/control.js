@@ -6,18 +6,16 @@ $(document).ready(function() {
     $('#readDerp').click(readDerp);
     $('#add').click(add);
 
-    function add()
-    {
+    function add() {
         var operatorA = $('#operatorA').val();
         var operatorB = $('#operatorB').val();
         console.log("oPerators: " + operatorA + " and " + operatorB);
         var requestQuery = {
             operatorA: operatorA,
             operatorB: operatorB
-             };
+        };
 
-        $.getJSON('/add', requestQuery,function(sum)
-        {
+        $.getJSON('/add', requestQuery, function(sum) {
             console.log("sum:" + sum);
             $('#display').html(JSON.stringify(sum.sum));
         })
