@@ -34,7 +34,7 @@ router.get('/renewables', function(request, response) {
 router.get('/renewableByIndex/:id', function(request, response) {
     console.log('Renewables by year called,', request.params.id);
 
-    fs.readFile('data/json-as-js-renewables.js', 'utf8', function(err, data) {
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
         if (err) {
             // response.send(err, 404);
             response.status(404).send(err);
@@ -67,7 +67,7 @@ router.get('/renewableByYear/:id', function(request, response) {
         } else {
             var json = JSON.parse(data);
             //  console.log(json[parseInt(request.params.id)]);
-            for (var i = 0; i < renewables.length; i++) {
+            for (var i = 0; i < response.length; i++) {
                 response.send({
                     result: 'Success',
                     renewables: json[parseInt(request.params.id)]

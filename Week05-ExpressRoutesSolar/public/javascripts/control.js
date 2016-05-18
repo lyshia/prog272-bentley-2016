@@ -1,4 +1,4 @@
-/* $(document).ready(function() {
+ $(document).ready(function() {
     'use strict';
 
     $('#getRenewable').click(getRenewables);
@@ -26,7 +26,7 @@
     function getByIndex() {
         console.log("get by index called");
         var userInput = $('#renewableByIndexInput').val();
-        $.getJSON('/renewablesByIndex/' + userInput, function(response) {
+        $.getJSON('/renewableByIndex/' + userInput, function(response) {
                 console.log(response);
                 $('#debug').html(JSON.stringify(response, null, 4));
             })
@@ -61,7 +61,7 @@
             });
     }
 });
-*/
+/*
 
 define(['jquery', 'about', 'work'], function($, about, work) {
     //Do setup work here
@@ -89,3 +89,4 @@ define(['jquery', 'about', 'work'], function($, about, work) {
 
     return control;
 });
+*/

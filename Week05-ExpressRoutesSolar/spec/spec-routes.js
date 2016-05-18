@@ -57,7 +57,7 @@ fdescribe('Elvenware Routes Suite', function() {
                 done();
             });
     });
-
+/*
     it('can call renewablesByIndexSorted route with an index and gets energy object as sorted array', function(done) {
         request(app)
             .get('/renewablesByIndexSorted/1')
@@ -77,10 +77,10 @@ fdescribe('Elvenware Routes Suite', function() {
                 done();
             });
     });
-
+*/
     it('call renewableByYear and get renewable object with specific year', function(done) {
         request(app)
-            .get('/renewableByYear/2016')
+            .get('/renewableByYear/2017')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(function(response) {
@@ -88,7 +88,7 @@ fdescribe('Elvenware Routes Suite', function() {
                 expect(response.body.result).toBe('Success');
                 //console.log(response.body.renewables);
                 var renewable = response.body.renewable;
-                expect(renewable.Year).toBe('2016');
+                expect(renewable.Year).toBe('2017');
             })
             .end(function(err, res) {
                 if (err) {
