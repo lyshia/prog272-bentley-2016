@@ -2,7 +2,7 @@
  * Created by charlie on 10/7/15.
  */
 
-describe('Elvenware Simple Plain Suite', function() {
+describe('Elvenware Simple Plain Suite Basic', function() {
 
     'use strict';
 

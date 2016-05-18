@@ -30,4 +30,57 @@ router.get('/renewables', function(request, response) {
 
 });
 
+
+router.get('/renewableByIndex/:id', function(request, response) {
+    console.log('Renewables by year called,', request.params.id);
+
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            //  console.log(json[parseInt(request.params.id)]);
+            for (var i = 0; i < module.exports.length; i++) {
+                response.send({
+                    result: 'Success',
+                    renewables: json[parseInt(request.params.id)]
+                });
+                return;
+            }
+            response.send({
+                result: 'Failure',
+                renewables: null
+            });
+        }
+    });
+
+});
+
+router.get('/renewableByYear/:id', function(request, response) {
+    console.log('Renewables by year called,', request.params.id);
+
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            //  console.log(json[parseInt(request.params.id)]);
+            for (var i = 0; i < response.length; i++) {
+                response.send({
+                    result: 'Success',
+                    renewables: json[parseInt(request.params.id)]
+                });
+                return;
+            }
+            response.send({
+                result: 'Failure',
+                renewables: null
+            });
+        }
+    });
+
+});
+
 module.exports = router;
