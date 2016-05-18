@@ -120,6 +120,6 @@ module.exports = [
           "Wood biomass (quadrillion Btu)": "2.099319235",
           "Hydropower (quadrillion Btu)": "2.869035197"
       }
-  
+
 
 ]
