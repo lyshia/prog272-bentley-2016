@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('#getRenewableByIndex').click(getByIndex);
     $('#getRenewableByYear').click(getByYear);
 
+
     function getRenewables() {
 
         $.getJSON('/renewables', function(response) {
