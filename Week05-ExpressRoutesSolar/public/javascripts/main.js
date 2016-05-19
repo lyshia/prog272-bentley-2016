@@ -8,13 +8,15 @@ requirejs.config({
     paths: {
         jquery: 'components/jquery/dist/jquery',
         bootstrap: 'components/bootstrap/dist/js/bootstrap',
-        control: 'javascripts/control'
+        control: 'javascripts/control',
+        about: 'javascripts/about',
+        work: 'javascripts/work'
     }
 });
 
 requirejs(['jquery'], function($) {
 
-    requirejs(['bootstrap', 'control'], function(bootstrap, control) {
+    requirejs(['bootstrap', 'about','control'], function(bootstrap,about,control) {
         control.init();
     });
 });
