@@ -67,23 +67,6 @@ router.get('/renewableByYear/:id', function(request, response) {
             response.status(404).send(err);
         } else {
 
-            var json = JSON.parse(data);
-            //  console.log(json[parseInt(request.params.id)]);
-            for (var i = 0; i < response.length; i++) {
-                response.send({
-                    result: 'Success',
-                    renewables: json[parseInt(request.params.id)]
-                });
-                return;
-            }
-            response.send({
-                result: 'Failure',
-                renewables: null
-            });
-        }
-    });
-
-=======
             var parsedJson = JSON.parse(data);
             //     console.log(Object.keys(parsedJson).length);
             for (var i = 0; i < Object.keys(parsedJson).length; i++) {
@@ -100,7 +83,7 @@ router.get('/renewableByYear/:id', function(request, response) {
 
 
     });
->>>>>>> week06
+
 });
 
 module.exports = router;
