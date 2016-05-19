@@ -10,7 +10,10 @@ router.get('/', function(req, res, next) {
     });
 });
 
-
+router.get('/:id', function(request, response) {
+  response.render(request.params.id, { title: 'ElfComponent' });
+});
+/*
 router.get('/renewables', function(request, response) {
     console.log('Renewables called');
 
@@ -58,7 +61,6 @@ router.get('/renewableByIndex/:id', function(request, response) {
 });
 
 router.get('/renewableByYear/:id', function(request, response) {
-
     console.log('Renewables by year called,', request.params.id);
 
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
@@ -66,7 +68,6 @@ router.get('/renewableByYear/:id', function(request, response) {
             // response.send(err, 404);
             response.status(404).send(err);
         } else {
-
             var json = JSON.parse(data);
             //  console.log(json[parseInt(request.params.id)]);
             for (var i = 0; i < response.length; i++) {
@@ -83,24 +84,6 @@ router.get('/renewableByYear/:id', function(request, response) {
         }
     });
 
-=======
-            var parsedJson = JSON.parse(data);
-            //     console.log(Object.keys(parsedJson).length);
-            for (var i = 0; i < Object.keys(parsedJson).length; i++) {
-                var currJson = parsedJson[i];
-                console.log(currJson.Year);
-                if (currJson.Year === request.params.id) {
-                    response.send({
-                        result: 'Success',
-                        renewables: currJson
-                    });
-                }
-            }
-        }
-
-
-    });
->>>>>>> week06
 });
-
+*/
 module.exports = router;
