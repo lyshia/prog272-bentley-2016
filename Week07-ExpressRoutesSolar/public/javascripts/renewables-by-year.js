@@ -3,7 +3,7 @@ define(function() {
     function getByYear() {
         console.log("get renewables by year called");
         var userInput = $('#reneweableByYearInput').val();
-        $.getJSON('/renewableByYear/:' + userInput, function(response) { // here? take out s?
+        $.getJSON('/renewableByYear/' + userInput, function(response) { // here? take out s?
                 console.log(response);
                 $('#debug').html(JSON.stringify(response, null, 4));
             })

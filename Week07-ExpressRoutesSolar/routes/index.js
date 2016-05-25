@@ -23,10 +23,17 @@ router.get('/renewables', function(request, response) {
             response.status(404).send(err);
         } else {
             var json = JSON.parse(data);
-            console.log(json);
+            //  console.log(json[parseInt(request.params.id)]);
+            for (var i = 0; i < module.exports.length; i++) {
+                response.send({
+                    result: 'Success',
+                    renewables: json[parseInt(request.params.id)]
+                });
+                return;
+            }
             response.send({
-                result: 'Success',
-                renewables: json
+                result: 'Failure',
+                renewables: null
             });
         }
     });
@@ -69,11 +76,12 @@ router.get('/renewableByYear/:id', function(request, response) {
             response.status(404).send(err);
         } else {
             var json = JSON.parse(data);
+            var jsonData = json[parseInt(request.params.id)];
             //  console.log(json[parseInt(request.params.id)]);
-            for (var i = 0; i < response.length; i++) {
+            for (var i = 0; i < module.exports.length; i++) {
                 response.send({
                     result: 'Success',
-                    renewables: json[parseInt(request.params.id)]
+                    renewables: jsonData
                 });
                 return;
             }
