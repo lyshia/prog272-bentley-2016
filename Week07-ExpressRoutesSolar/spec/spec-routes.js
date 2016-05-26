@@ -2,7 +2,7 @@ var request = require('supertest');
 var app = require('../app');
 var energyUtils = require('../routes/energy-utils');
 
-fdescribe('Elvenware Routes Suite', function() {
+describe('Elvenware Routes Suite', function() {
     'use strict';
 
     it('shows we can test', function() {
@@ -15,9 +15,7 @@ fdescribe('Elvenware Routes Suite', function() {
             .expect(200)
             .expect('Content-Type', /json/)
             .end(function(err, res) {
-                if (err) {
-                    throw err;
-                }
+                if (err) { throw err; }
                 done();
             });
     });
@@ -33,9 +31,7 @@ fdescribe('Elvenware Routes Suite', function() {
                 expect(response.body.renewables[0].Year).toBe('2017');
             })
             .end(function(err, res) {
-                if (err) {
-                    throw err;
-                }
+                if (err) { throw err; }
                 done();
             });
     });
@@ -51,13 +47,11 @@ fdescribe('Elvenware Routes Suite', function() {
                 expect(response.body.renewables.Year).toBe('2016');
             })
             .end(function(err, res) {
-                if (err) {
-                    throw err;
-                }
+                if (err) { throw err; }
                 done();
             });
     });
-/*
+
     it('can call renewablesByIndexSorted route with an index and gets energy object as sorted array', function(done) {
         request(app)
             .get('/renewablesByIndexSorted/1')
@@ -71,16 +65,14 @@ fdescribe('Elvenware Routes Suite', function() {
                 }
             })
             .end(function(err, res) {
-                if (err) {
-                    throw err;
-                }
+                if (err) { throw err; }
                 done();
             });
     });
-*/
+
     it('call renewableByYear and get renewable object with specific year', function(done) {
         request(app)
-            .get('/renewableByYear/2017')
+            .get('/renewableByYear/2016')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(function(response) {
@@ -88,12 +80,10 @@ fdescribe('Elvenware Routes Suite', function() {
                 expect(response.body.result).toBe('Success');
                 //console.log(response.body.renewables);
                 var renewable = response.body.renewable;
-                expect(renewable.Year).toBe('2017');
+                expect(renewable.Year).toBe('2016');
             })
             .end(function(err, res) {
-                if (err) {
-                    throw err;
-                }
+                if (err) { throw err; }
                 done();
             });
     });

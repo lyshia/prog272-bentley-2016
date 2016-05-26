@@ -23,27 +23,14 @@ router.get('/renewables', function(request, response) {
                 renewables: JSON.parse(data)
 
             });
-            /*
-            response.send({
-                result: 'Failure',
-                renewables: null
-            }); */
+
         }
     });
 
 });
 
 
-/*
-        if (err) throw err;
-        console.log(data);
-        response.send({
-            result: 'Success',
-            renewables: JSON.parse(data)
-        });
-    });
 
-}); */
 
 router.get('/renewableByIndex/:id', function(request, response) {
     console.log('Renewables by index called,', request.params.id);
@@ -105,6 +92,33 @@ router.get('/:id', function(request, response) {
     response.render(request.params.id, {
         title: 'ElfComponent'
     });
+});
+
+
+router.get('/renewablesByIndexSorted/:id', function(request, response) {
+  console.log('Renewables by index sorted called,', request.params.id);
+
+  fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+      if (err) {
+          // response.send(err, 404);
+          response.status(404).send(err);
+      } else {
+          var json = JSON.parse(data);
+          //  console.log(json[parseInt(request.params.id)]);
+          for (var i = 0; i < module.exports.length; i++) {
+              response.send({
+                  result: 'Success',
+                  renewables: json[parseInt(request.params.id)]
+              });
+              return;
+          }
+          response.send({
+              result: 'Failure',
+              renewables: null
+          });
+      }
+  });
+
 });
 
 module.exports = router;
