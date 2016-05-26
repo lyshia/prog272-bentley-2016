@@ -20,8 +20,8 @@ define(function() {
     }
 
     var renewablesByIndex = {
-        color: "Green",
-        size: "LittleGreen",
+        color: "Show Renewables",
+        size: "by Index",
         init: function() {
             console.log(renewablesByIndex.color);
             //var that = this;

@@ -20,13 +20,13 @@ define(function() {
     }
 
     var renewablesByYear = {
-        color: "Light Green",
-        size: "LittleGreen",
+        color: "Show Renewables",
+        size: "By Year",
         init: function() {
             console.log(renewablesByYear.color);
             //var that = this;
             $('#elf-view').load('/renewables-by-year', function() {
-            //    $('#display').html(renewablesByYear.color + ' ' + renewablesByYear.size);
+                $('#display').html(renewablesByYear.color + ' ' + renewablesByYear.size);
                 $('#reneweableByYearInput').change(function() {
                     getByYear();
                 })

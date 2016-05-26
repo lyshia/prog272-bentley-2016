@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h1= title
+  .jumbotron
+        h1= title
   p Welcome to #{title}
 
   button#workButton.btn.btn-success Work
@@ -11,7 +12,7 @@ block content
   button#renewablesButton.btn.btn-success Renewables
 
   button#renewablesByIndexButton.btn.btn-info Renewables By Index
-  
+
   button#renewablesByYearButton.btn.btn-success Renewables by year
 
 
