@@ -75,7 +75,7 @@ router.get('/renewableByYear/:id', function(request, response) {
                 if (currJson.Year === request.params.id) {
                     response.send({
                         result: 'Success',
-                        renewables: currJson
+                        renewable: currJson
                     });
                 }
             }

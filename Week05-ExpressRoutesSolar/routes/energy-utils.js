@@ -16,8 +16,7 @@ function objectToArray(obj) {
     // So when two arrays are passed, we want to to know if 1 is larger than 2.
     // It should take about 10 or 12 characters to make the test.
     objectAsArray.sort(function(a, b) {
-        return // WRITE CODE THAT CHECKS THAT a SUB 1 IS LARGER THAN b SUB1
-        a[1] > b[1];
+        return a[1] > b[1];
     });
 
     return objectAsArray;

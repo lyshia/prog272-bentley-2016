@@ -2,7 +2,7 @@ var request = require('supertest');
 var app = require('../app');
 var energyUtils = require('../routes/energy-utils');
 
-fdescribe('Elvenware Routes Suite', function() {
+describe('Elvenware Routes Suite', function() {
     'use strict';
 
     it('shows we can test', function() {

@@ -45,7 +45,7 @@ $(document).ready(function() {
     function getByYear() {
         console.log('get by year calledd');
         var userInput = $('#reneweableByYearInput').val();
-        $.getJSON('/renewablesByYear/' + userInput, function(response) {
+        $.getJSON('/renewableByYear/' + userInput, function(response) {
                 console.log(response);
                 $('#debug').html(JSON.stringify(response, null, 4));
             })
