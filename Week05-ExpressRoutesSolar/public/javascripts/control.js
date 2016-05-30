@@ -1,5 +1,5 @@
-define(['jquery', 'work', 'about', 'renewables', 'renewablesIndex', 'renewablesYear'],
-    function($, work, about, renewables, renewablesByIndex, renewablesByYear) {
+define(['jquery', 'work', 'about', 'renewables'],
+    function($, work, about, renewables) {
         //Do setup work here
 
         var control = {
@@ -8,7 +8,7 @@ define(['jquery', 'work', 'about', 'renewables', 'renewablesIndex', 'renewablesY
             init: function() {
                 //console.log(this.color);
                 $('#workButton').click(work.init);
-                $('#renewablesButton').click(renewables.init);
+                $('#getRenewable').click(renewables.init);
                 $('#aboutButton').click(about.init);
                 work.init();
             }

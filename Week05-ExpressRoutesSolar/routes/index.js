@@ -86,4 +86,10 @@ router.get('/renewableByYear/:id', function(request, response) {
 
 });
 
+router.get('/:id', function(request, response) {
+    response.render(request.params.id, {
+        title: 'Week05-ExpressRoutesSolar Bentley'
+    });
+});
+
 module.exports = router;
