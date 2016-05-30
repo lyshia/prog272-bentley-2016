@@ -2,8 +2,6 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
     function($, about, home, renewables, renewablesByIndex, renewablesByYear) {
         //Do setup work here
 
-
-
         function showBar() {
             //console.log('Show Bar Clicks called now');
             $('#display2').html('bar');
@@ -24,7 +22,7 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
                     $('#renewablesByYearButton').click(renewablesByYear.init);
                     home.init();
                 }*/
-                
+
                             init: function() {
                                 $('.homeMenu').click(home.init);
                                 $('.renewablesMenu').click(renewables.init);

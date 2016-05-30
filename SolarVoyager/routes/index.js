@@ -2,13 +2,25 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
     'use strict';
     res.render('index', {
-        title: 'ExpressRoutesSolar Bentley'
+        title: 'Week05-ExpressRoutesSolar Bentley'
     });
 });
+
+router.get('/:id', function(request, response) {
+  response.render(request.params.id, { title: 'ElfComponent' });
+});
+
+
+router.get('/renewables/:id', function(request, response) {
+
+    response.render('renewables/' + request.params.id, {
+        title: 'ElfComponent'
+    });
+});
+
 
 router.get('/renewables/renewables', function(request, response) {
     console.log('Renewables called');
@@ -28,8 +40,6 @@ router.get('/renewables/renewables', function(request, response) {
     });
 
 });
-
-
 
 
 router.get('/renewables/renewableByIndex/:id', function(request, response) {
@@ -88,20 +98,6 @@ router.get('/renewables/renewableByYear/:id', function(request, response) {
 
 });
 
-
-router.get('/renewables/:id', function(request, response) {
-
-    response.render('renewables/' + request.params.id, {
-        title: 'ElfComponent'
-    });
-});
-
-
-router.get('/:id', function(request, response) {
-    response.render(request.params.id, {
-        title: 'ElfComponent'
-    });
-});
 
 
 router.get('/renewablesByIndexSorted/:id', function(request, response) {
