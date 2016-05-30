@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/renewables', function(request, response) {
+router.get('/renewables/renewables', function(request, response) {
     console.log('Renewables called');
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
         if (err) {
