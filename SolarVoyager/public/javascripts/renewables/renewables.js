@@ -47,7 +47,7 @@ define(function() {
         $('#geoView').val(renewables.geo);
         $('#otherBiomassView').val(renewables.otherBiomass);
         $('#windView').val(renewables.wind);
-        $('#liquidView').val(renewables.liquidBiofuels);
+        $('#liquidBiofuelsView').val(renewables.liquidBiofuels);
         $('#woodView').val(renewables.wood);
         $('#hydropowerView').val(renewables.hydropower);
     };
@@ -58,7 +58,7 @@ define(function() {
             $('#indexInput').val(index);
             showRenewable(renewablesList[index]);
         }
-    }
+    };
 
     var indexButtonChange = function(event) {
         var test = event.data.value + index;
@@ -71,8 +71,6 @@ define(function() {
         indexChange(parseInt(test));
     };
 
-
-
     var renewables = {
         color: "Show All",
         size: "Renewables Data",
@@ -81,6 +79,14 @@ define(function() {
             //var that = this;
             $('#elf-view').load('/renewables/renewables-page', function() {
                 $('#display').html(renewables.color + ' ' + renewables.size);
+                $('#plusButton').click({
+                    value: 1
+                }, indexButtonChange);
+                $('#minusButton').click({
+                    value: -1
+                }, indexButtonChange);
+                $('#indexInput').change(buttonChange);
+
                 getRenewables();
             });
         }
