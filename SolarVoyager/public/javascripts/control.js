@@ -1,5 +1,5 @@
-define(['jquery', 'about', 'work', 'renewables', 'renewablesByIndex', 'renewablesByYear'],
-    function($, about, work, renewables, renewablesByIndex, renewablesByYear) {
+define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewablesByYear'],
+    function($, about, home, renewables, renewablesByIndex, renewablesByYear) {
         //Do setup work here
 
 
@@ -17,11 +17,11 @@ define(['jquery', 'about', 'work', 'renewables', 'renewablesByIndex', 'renewable
             },
             init: function() {
                 $('#aboutButton').click(about.init);
-                $('#workButton').click(work.init);
+                $('#homeButton').click(home.init);
                 $('#renewablesButton').click(renewables.init);
                 $('#renewablesByIndexButton').click(renewablesByIndex.init);
                 $('#renewablesByYearButton').click(renewablesByYear.init);
-                work.init();
+                home.init();
             }
         };
 

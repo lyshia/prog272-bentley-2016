@@ -10,7 +10,7 @@ requirejs.config({
         bootstrap: 'components/bootstrap/dist/js/bootstrap',
         control: 'javascripts/control',
         about: 'javascripts/about',
-        work: 'javascripts/work',
+        home: 'javascripts/home',
         renewables: 'javascripts/renewables/renewables',
         renewablesByIndex: 'javascripts/renewables/renewables-by-index',
         renewablesByYear: 'javascripts/renewables/renewables-by-year'
@@ -19,8 +19,8 @@ requirejs.config({
 
 requirejs(['jquery'], function($) {
 
-    requirejs(['bootstrap', 'about','control', 'renewables', 'renewablesByIndex', 'renewablesByYear'],
-     function(bootstrap,about,control, renewables, renewablesByIndex, renewablesByYear) {
+    requirejs(['bootstrap', 'about','home','control', 'renewables', 'renewablesByIndex', 'renewablesByYear'],
+     function(bootstrap,about,home,control, renewables, renewablesByIndex, renewablesByYear) {
         control.init();
     });
 });
