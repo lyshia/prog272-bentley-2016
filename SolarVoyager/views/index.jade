@@ -1,19 +1,54 @@
 extends layout
 
 block content
-  .jumbotron
+    header.navbar.navbar-inverse.navbar-fixed-top.bs-docs-nav(role='banner')
+        .container
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/') Solar Explorer
+            nav.collapse.navbar-collapse.bs-navbar-collapse(role="navigation")
+                ul.nav.navbar-nav
+                    li.trigger-collapse(ng-class="{ active: isActive('/')}")
+                        a.homeMenu Home
+                    li.collapse.dropdown
+                        a.dropdown-toggle(data-toggle='dropdown')
+                            | Renewables
+                            b.caret
+                        ul.dropdown-menu(role='menu')
+                            li.trigger-collapse(ng-class="{ active: isActive('/renewables')}")
+                                a.renewablesMenu Renewables
+                                a.renewablesByIndexMenu Renewables By Index
+                                a.renewablesByYearMenu Renewables By Year
+                                                        // YOU FILL IN THESE TWO ITEMS
+                    li.collapse.dropdown
+                        a.dropdown-toggle(data-toggle='dropdown')
+                            | Energy
+                            b.caret
+                        ul.dropdown-menu(role='menu')
+                                                        // BASED ON THE DROP DOWN SHOWN ABOVE
+                                                        // YOU DEFINE EnerygyOverview and EnergyTypes
+                    li.trigger-collapse(ng-class="{ active: isActive('/about')}")
+                        a.aboutMenu About
+    .container
+
         h1= title
-  p Welcome to #{title}
+        p Welcome to #{title}
 
-  button#homeButton.btn.btn-success Home
+        button.homeMenu.btn.btn-success Home
+        button.renewablesMenu.btn.btn-info Renewables
+        button.renewablesByIndexMenu.btn.btn-success Renewables by Index
+        button.renewablesByYearMenu.btn.btn-info Renewables by Year
+        button.aboutMenu.btn.btn-success About
 
-  button#aboutButton.btn.btn-info About
-
-  button#renewablesButton.btn.btn-success Renewables
-
-  button#renewablesByIndexButton.btn.btn-info Renewables By Index
-
-  button#renewablesByYearButton.btn.btn-success Renewables by year
+        div
+            button.highTechEnergyOverviewMenu.btn.btn-info High Tech Energy Overview
+            button.highTechEnergyTypesMenu.btn.btn-danger High Tech Energy Types
 
 
-  #elf-view
+    #elf-view
+
+  pre#debug
