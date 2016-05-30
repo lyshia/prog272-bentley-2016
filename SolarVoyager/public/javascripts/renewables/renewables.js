@@ -3,7 +3,7 @@ define(function() {
     function getRenewables() {
         console.log("get renewables called");
         //    var userInput = $('#renewableByIndexInput').val();
-        $.getJSON('/renewables', function (response) {
+        $.getJSON('/renewables/renewables', function (response) {
               $('#debug').html(JSON.stringify(response, null, 4));
         })
         .done(function () {
@@ -24,7 +24,7 @@ define(function() {
         init: function() {
             console.log(renewables.color);
             //var that = this;
-            $('#elf-view').load('/renewables-page', function() {
+            $('#elf-view').load('/renewables/renewables-page', function() {
                 $('#display').html(renewables.color + ' ' + renewables.size);
                 getRenewables();
             });

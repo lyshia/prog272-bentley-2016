@@ -1,9 +1,9 @@
 define(function() {
     //Do setup work here
-    function getByYear() {
-        console.log("get renewables by year called");
-        var userInput = $('#reneweableByYearInput').val();
-        $.getJSON('/renewableByYear/' + userInput, function(response) { // here? take out s?
+    function getByIndex() {
+        console.log("get by index called");
+        var userInput = $('#renewableByIndexInput').val();
+        $.getJSON('/renewables/renewableByIndex/' + userInput, function(response) {
                 console.log(response);
                 $('#debug').html(JSON.stringify(response, null, 4));
             })
@@ -19,23 +19,23 @@ define(function() {
             });
     }
 
-    var renewablesByYear = {
+    var renewablesByIndex = {
         color: "Show Renewables",
-        size: "By Year",
+        size: "by Index",
         init: function() {
-            console.log(renewablesByYear.color);
+            console.log(renewablesByIndex.color);
             //var that = this;
-            $('#elf-view').load('/renewables-by-year', function() {
-                $('#display').html(renewablesByYear.color + ' ' + renewablesByYear.size);
-                $('#reneweableByYearInput').change(function() {
-                    getByYear();
+            $('#elf-view').load('/renewables/renewables-by-index-page', function() {
+                $('#display').html(renewablesByIndex.color + ' ' + renewablesByIndex.size);
+                $('#renewableByIndexInput').change(function() {
+                    getByIndex();
                 })
-                getByYear();
+                getByIndex();
 
             });
         }
     };
-    return renewablesByYear;
+    return renewablesByIndex;
 
 
 });
