@@ -2,6 +2,7 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
     function($, about, home, renewables, renewablesByIndex, renewablesByYear) {
         //Do setup work here
 
+  
 
         function showBar() {
             //console.log('Show Bar Clicks called now');
@@ -16,14 +17,25 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
                 $('#display2').html(control.color + ' - ' + control.size);
             },
             init: function() {
-                $('#aboutButton').click(about.init);
-                $('#homeButton').click(home.init);
-                $('#renewablesButton').click(renewables.init);
-                $('#renewablesByIndexButton').click(renewablesByIndex.init);
-                $('#renewablesByYearButton').click(renewablesByYear.init);
-                home.init();
-            }
+                    $('#aboutButton').click(about.init);
+                    $('#homeButton').click(home.init);
+                    $('#renewablesButton').click(renewables.init);
+                    $('#renewablesByIndexButton').click(renewablesByIndex.init);
+                    $('#renewablesByYearButton').click(renewablesByYear.init);
+                    home.init();
+                }
+                /*
+                            init: function() {
+                                $('.homeMenu').click(home.init);
+                                $('.renewablesMenu').click(renewables.init);
+                                $('.renewablesByIndexMenu').click(renewablesByIndex.init);
+                                $('.renewablesByYearMenu').click(renewablesByYear.init);
+                                $('.aboutMenu').click(about.init);
+                                home.init();
+                            }*/
         };
 
         return control;
+
+
     });
