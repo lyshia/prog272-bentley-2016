@@ -29,9 +29,13 @@ router.get('/renewables', function(request, response) {
 
 });
 
+router.get('/:id', function(request, response) {
+    response.render(request.params.id, {
+        title: 'ElfComponent'
+    });
+});
 
-
-
+/*
 router.get('/renewableByIndex/:id', function(request, response) {
     console.log('Renewables by index called,', request.params.id);
 
@@ -88,11 +92,7 @@ router.get('/renewableByYear/:id', function(request, response) {
 
 });
 
-router.get('/:id', function(request, response) {
-    response.render(request.params.id, {
-        title: 'ElfComponent'
-    });
-});
+
 
 
 router.get('/renewablesByIndexSorted/:id', function(request, response) {
@@ -120,5 +120,5 @@ router.get('/renewablesByIndexSorted/:id', function(request, response) {
   });
 
 });
-
+*/
 module.exports = router;
