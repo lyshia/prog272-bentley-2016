@@ -31,7 +31,9 @@ describe('Elvenware Routes Suite', function() {
                 expect(response.body.renewables[0].Year).toBe('2017');
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                   throw err;
+                 }
                 done();
             });
     });
@@ -47,7 +49,9 @@ describe('Elvenware Routes Suite', function() {
                 expect(response.body.renewables.Year).toBe('2016');
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                  throw err;
+                }
                 done();
             });
     });
@@ -65,7 +69,9 @@ describe('Elvenware Routes Suite', function() {
                 }
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                  throw err;
+                }
                 done();
             });
     });
@@ -83,7 +89,9 @@ describe('Elvenware Routes Suite', function() {
                 expect(renewable.Year).toBe('2016');
             })
             .end(function(err, res) {
-                if (err) { throw err; }
+                if (err) {
+                  throw err;
+                }
                 done();
             });
     });
