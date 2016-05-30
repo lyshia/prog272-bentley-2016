@@ -7,18 +7,27 @@ module.exports = function(config) {
         // base path, that will be used to resolve files and exclude
         basePath: './',
 
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'requirejs'],
 
         files: [
             'public/components/jquery/dist/jquery.min.js',
-            'node_modules/jasmine-jquery/lib/*.js',
-            'public/javascripts/*.js',
-            'spec/**/*.html',
-            'spec/test*.js'
+            //'public/components/requirejs/require.js',
+            'node_modules/jasmine-jquery/lib/*.js', {
+                pattern: 'spec/test-*.js',
+                included: false
+            }, {
+                pattern: 'spec/data/client-renewables.js',
+                included: false
+            }, {
+                pattern: 'public/javascripts/**/*.js',
+                included: false
+            },
+            'spec/main-test.js',
+            '*.html'
         ],
 
         // list of files to exclude
-        exclude: [],
+        exclude: ['public/javascripts/main.js'],
 
         reporters: ['spec'],
 
@@ -46,12 +55,6 @@ module.exports = function(config) {
         captureTimeout: 20000,
 
         // Set to false to watch files for changes
-        singleRun: false,
-
-        plugins: ['karma-jasmine',
-            'karma-spec-reporter',
-            'karma-phantomjs-launcher'
-        ]
-
+        singleRun: false
     });
 };
