@@ -3,7 +3,7 @@ var app = require('../app');
 var renewables = require('./data/json-as-js-renewables');
 var energyUtils = require('../routes/energy-utils');
 
-fdescribe('Elvenware Energy Utils Suite', function() {
+describe('Elvenware Energy Utils Suite', function() {
     'use strict';
 
     it('shows we can test', function() {
