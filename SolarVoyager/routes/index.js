@@ -10,23 +10,6 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/renewables', function(request, response) {
-    console.log('Renewables called');
-    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
-        if (err) {
-            // response.send(err, 404);
-            response.status(404).send(err);
-        } else {
-            var json = JSON.parse(data);
-            response.send({
-                result: 'Success',
-                renewables: json
-            });
-        }
-    });
-
-});
-
 router.get('/renewables/renewables', function(request, response) {
     console.log('Renewables called');
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
@@ -43,34 +26,6 @@ router.get('/renewables/renewables', function(request, response) {
     });
 
 });
-
-router.get('/renewableByIndex/:id', function(request, response) {
-    console.log('Renewables by index called,', request.params.id);
-
-    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
-        if (err) {
-            // response.send(err, 404);
-            response.status(404).send(err);
-        } else {
-            var json = JSON.parse(data);
-            //  console.log(json[parseInt(request.params.id)]);
-            for (var i = 0; i < module.exports.length; i++) {
-                response.send({
-                    result: 'Success',
-                    renewables: json[parseInt(request.params.id)]
-                });
-                return;
-            }
-            response.send({
-                result: 'Failure',
-                renewables: null
-            });
-        }
-    });
-
-});
-
-
 
 router.get('/renewables/renewableByIndex/:id', function(request, response) {
     console.log('Renewables by index called,', request.params.id);
@@ -92,6 +47,74 @@ router.get('/renewables/renewableByIndex/:id', function(request, response) {
             response.send({
                 result: 'Failure',
                 renewables: null
+            });
+        }
+    });
+
+});
+
+
+router.get('/renewables/renewableByYear/:id', function(request, response) {
+    console.log('Renewables by year called,', request.params.id);
+
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            //convert to js object
+            //  console.log(json[parseInt(request.params.id)]);
+            for (var i = 0; i < json.length; i++) {
+                if (json[i].Year === request.params.id) {
+                    response.send({
+                        result: 'Success',
+                        renewables: json[i]
+                    });
+                    return;
+                }
+            }
+            response.send({
+                result: 'Failure',
+                renewables: null
+            });
+        }
+    });
+
+});
+
+
+router.get('/renewables', function(request, response) {
+    console.log('Renewables called');
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            response.send({
+                result: 'Success',
+                renewables: json
+            });
+        }
+    });
+
+});
+
+
+
+
+router.get('/renewableByIndex/:id', function(request, response) {
+    console.log('Renewables by index called', request.params.id);
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            response.send({
+                result: 'Success',
+                renewables: json[parseInt(request.params.id)]
             });
         }
     });
@@ -127,9 +150,10 @@ router.get('/renewableByYear/:id', function(request, response) {
     });
 
 });
-
-router.get('/renewables/renewableByYear/:id', function(request, response) {
-    console.log('Renewables by year called,', request.params.id);
+/*
+router.get('/renewableByIndex/:id', function(request, response) {
+    'use strict'
+    console.log('Renewables by index called,', request.params.id);
 
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
         if (err) {
@@ -137,18 +161,15 @@ router.get('/renewables/renewableByYear/:id', function(request, response) {
             response.status(404).send(err);
         } else {
             var json = JSON.parse(data);
-            //convert to js object
             //  console.log(json[parseInt(request.params.id)]);
-            for (var i = 0; i < json.length; i++) {
-                if (json[i].Year === request.params.id) {
-                    response.send({
-                        result: 'Success',
-                        renewables: json[i]
-                    });
-                    return;
-                }
-            }
-            response.send({
+          //  for (var i = 0; i < module.exports.length; i++) {
+                response.send({
+                    result: 'Success',
+                    renewables: json[parseInt(request.params.id)]
+                });
+                return;
+        //    }
+           response.send({
                 result: 'Failure',
                 renewables: null
             });
@@ -156,9 +177,7 @@ router.get('/renewables/renewableByYear/:id', function(request, response) {
     });
 
 });
-
-
-
+*/
 router.get('/renewablesByIndexSorted/:id', function(request, response) {
     console.log('Renewables by index sorted called,', request.params.id);
 
@@ -168,22 +187,18 @@ router.get('/renewablesByIndexSorted/:id', function(request, response) {
             response.status(404).send(err);
         } else {
             var json = JSON.parse(data);
-            //  console.log(json[parseInt(request.params.id)]);
-            for (var i = 0; i < module.exports.length; i++) {
-                response.send({
-                    result: 'Success',
-                    renewables: json[parseInt(request.params.id)]
-                });
-                return;
-            }
+            var j = energyUtils.objectToArray(json);
+            console.log(energyUtils.objectToArray(json));
             response.send({
-                result: 'Failure',
-                renewables: null
+                result: 'Success',
+                renewables: j
             });
         }
     });
 
 });
+
+
 
 router.get('/:id', function(request, response) {
     response.render(request.params.id, {
