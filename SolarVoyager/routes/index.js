@@ -9,18 +9,6 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(request, response) {
-  response.render(request.params.id, { title: 'ElfComponent' });
-});
-
-
-router.get('/renewables/:id', function(request, response) {
-
-    response.render('renewables/' + request.params.id, {
-        title: 'ElfComponent'
-    });
-});
-
 
 router.get('/renewables/renewables', function(request, response) {
     console.log('Renewables called');
@@ -29,10 +17,10 @@ router.get('/renewables/renewables', function(request, response) {
             // response.send(err, 404);
             response.status(404).send(err);
         } else {
-            //    var json =
+            var json = JSON.parse(data);
             response.send({
                 result: 'Success',
-                renewables: JSON.parse(data)
+                renewables: json
 
             });
 
@@ -78,7 +66,6 @@ router.get('/renewables/renewableByYear/:id', function(request, response) {
         } else {
             var json = JSON.parse(data);
             //convert to js object
-
             //  console.log(json[parseInt(request.params.id)]);
             for (var i = 0; i < json.length; i++) {
                 if (json[i].Year === request.params.id) {
@@ -101,29 +88,44 @@ router.get('/renewables/renewableByYear/:id', function(request, response) {
 
 
 router.get('/renewablesByIndexSorted/:id', function(request, response) {
-  console.log('Renewables by index sorted called,', request.params.id);
+    console.log('Renewables by index sorted called,', request.params.id);
 
-  fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
-      if (err) {
-          // response.send(err, 404);
-          response.status(404).send(err);
-      } else {
-          var json = JSON.parse(data);
-          //  console.log(json[parseInt(request.params.id)]);
-          for (var i = 0; i < module.exports.length; i++) {
-              response.send({
-                  result: 'Success',
-                  renewables: json[parseInt(request.params.id)]
-              });
-              return;
-          }
-          response.send({
-              result: 'Failure',
-              renewables: null
-          });
-      }
-  });
+    fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            //  console.log(json[parseInt(request.params.id)]);
+            for (var i = 0; i < module.exports.length; i++) {
+                response.send({
+                    result: 'Success',
+                    renewables: json[parseInt(request.params.id)]
+                });
+                return;
+            }
+            response.send({
+                result: 'Failure',
+                renewables: null
+            });
+        }
+    });
 
+});
+
+router.get('/:id', function(request, response) {
+    response.render(request.params.id, {
+        title: 'ElfComponent'
+    });
+});
+
+
+
+router.get('/renewables/:id', function(request, response) {
+
+    response.render('renewables/' + request.params.id, {
+        title: 'ElfComponent'
+    });
 });
 
 module.exports = router;
