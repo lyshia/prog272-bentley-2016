@@ -1,5 +1,5 @@
-//module.exports = [
-  var renewables = [
+module.exports = [
+//  var renewables = [
 
       {
           "Year": "2017",
@@ -123,4 +123,4 @@
       }
 
 
-]
+];

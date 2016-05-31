@@ -1,7 +1,7 @@
 var request = require('supertest');
 var app = require('../app');
-var renewables = require('./data/json-as-js-renewables');
-var energyUtils = require('../routes/energy-utils');
+//var renewables = require('./data/json-as-js-renewables');
+//var energyUtils = require('../routes/energy-utils');
 
 fdescribe('Elvenware Routes Suite', function() {
     'use strict';
