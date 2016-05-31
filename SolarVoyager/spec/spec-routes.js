@@ -1,5 +1,6 @@
 var request = require('supertest');
 var app = require('../app');
+var renewables = require('./data/json-as-js-renewables');
 var energyUtils = require('../routes/energy-utils');
 
 fdescribe('Elvenware Routes Suite', function() {
@@ -11,7 +12,7 @@ fdescribe('Elvenware Routes Suite', function() {
 
     it('shows we can call renewables route without error and get a 200 back', function(done) {
         request(app)
-            .get('/renewables/renewabpes-page')
+            .get('/renewables')
             .expect(200)
             .expect('Content-Type', /json/)
             .end(function(err, res) {
@@ -24,7 +25,7 @@ fdescribe('Elvenware Routes Suite', function() {
 
     it('call renewables routes and see that first object body has Year set to 2017', function(done) {
         request(app)
-            .get('/renewables/renewables-page')
+            .get('/renewables')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(function(response) {
@@ -42,7 +43,7 @@ fdescribe('Elvenware Routes Suite', function() {
 
     it('shows we can call renewableByIndex route and can get a single renewable object by Index', function(done) {
         request(app)
-            .get('/renewables/renewableByIndex/1')
+            .get('/renewableByIndex/1')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(function(response) {

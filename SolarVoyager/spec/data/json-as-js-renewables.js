@@ -1,4 +1,5 @@
-module.exports = [
+//module.exports = [
+  var renewables = [
 
       {
           "Year": "2017",
@@ -120,6 +121,6 @@ module.exports = [
           "Wood biomass (quadrillion Btu)": "2.099319235",
           "Hydropower (quadrillion Btu)": "2.869035197"
       }
-  
+
 
 ]
