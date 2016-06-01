@@ -3,7 +3,7 @@ define(function() {
     function getByIndex() {
         console.log("get by index called");
         var userInput = $('#renewableByIndexInput').val();
-        $.getJSON('/renewables/renewableByIndex/' + userInput, function(response) {
+        $.getJSON('/renewableByIndex/' + userInput, function(response) {
                 console.log(response);
                 $('#debug').html(JSON.stringify(response, null, 4));
             })

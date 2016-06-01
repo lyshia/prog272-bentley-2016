@@ -4,7 +4,7 @@ define(function() {
 
     function getRenewables() {
         console.log("get renewables called");
-        $.getJSON('/renewables/renewables', function(response) {
+        $.getJSON('/renewables', function(response) {
 
             console.log(response);
             renewablesList = response.renewables;
