@@ -3,7 +3,7 @@ var app = require('../app');
 var renewables = require('./data/json-as-js-renewables');
 var energyUtils = require('../routes/energy-utils');
 
-fdescribe("Spec Routes Student Suite", function() {
+describe("Spec Routes Student Suite", function() {
     'use strict';
 
     it('shows renewables route returns an object array with length set to 12', function(done) {
@@ -25,7 +25,7 @@ fdescribe("Spec Routes Student Suite", function() {
     //    expect(true).toBe(false);
     });
 
-    it('shows the renewables route, parse text property of response object and show first object contains 2017', function(done) {
+/*    it('shows the renewables route, parse text property of response object and show first object contains 2017', function(done) {
 
         request(app)
             .get('/renewables')
@@ -46,6 +46,6 @@ fdescribe("Spec Routes Student Suite", function() {
             });
             // FILL IN THE CODE FOR THE TEST HERE. THEN REMOVE THE BOOLEAN TEST SHOWN BELOW THIS LINE
   //      expect(true).toBe(false);
-    });
+});*/
 
 });
