@@ -1,5 +1,5 @@
-define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewablesByYear'],
-    function($, about, home, renewables, renewablesByIndex, renewablesByYear) {
+define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview','type'],
+    function($, about, home, renewables, renewablesByIndex, renewablesByYear, overview, type) {
         //Do setup work here
 
         function showBar() {
@@ -29,6 +29,8 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
                                 $('.renewablesByIndexMenu').click(renewablesByIndex.init);
                                 $('.renewablesByYearMenu').click(renewablesByYear.init);
                                 $('.aboutMenu').click(about.init);
+                                $('.highTechEnergyOverviewMenu').click(overview.init);
+                                $('.highTechEnergyTypesMenu').click(type.init);
                                 home.init();
                             }
         };

@@ -29,6 +29,9 @@ block content
                             | Energy
                             b.caret
                         ul.dropdown-menu(role='menu')
+                          li.trigger-collapse(ng-class="{ active: isActive('/high-tech-energy')}")
+                                a.highTechEnergyOverviewMenu Energy Overview
+                                a.highTechEnergyTypesMenu Energy Types
                                                         // BASED ON THE DROP DOWN SHOWN ABOVE
                                                         // YOU DEFINE EnerygyOverview and EnergyTypes
                     li.trigger-collapse(ng-class="{ active: isActive('/about')}")
@@ -46,7 +49,7 @@ block content
 
         div
             button.highTechEnergyOverviewMenu.btn.btn-info High Tech Energy Overview
-            button.highTechEnergyTypesMenu.btn.btn-danger High Tech Energy Types
+            button.highTechEnergyTypesMenu.btn.btn-success High Tech Energy Types
 
 
     #elf-view

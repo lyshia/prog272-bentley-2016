@@ -9,7 +9,79 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/high-tech-energy/overview', function(request, response) {
+    console.log('Energy Overview called');
+    fs.readFile('data/EnergyTypes.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            response.send({
+                result: 'Success',
+                overview: json
+            });
+        }
+    });
 
+});
+router.get('/high-tech-energy/types', function(request, response) {
+    console.log('Energy Overview called');
+    fs.readFile('data/EnergyTypes.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+            var json = JSON.parse(data);
+            var arr = [];
+            for (var i = 0; i < json.length; i++) {
+                if (!arr.contains(json[i].Description)) {
+                    arr.push(json[i].Description);
+                }
+            }
+            return arr;
+            //  var unique = [...new Set(json.map(item => item.Description))];
+            response.send({
+                result: 'Success',
+                overview: arr
+            });
+        }
+    });
+
+});
+
+
+
+/*
+router.get('/high-tech-energy/type', function(request, response) {
+    console.log('Energy Overview called');
+    fs.readFile('data/EnergyTypes.json', 'utf8', function(err, data) {
+        if (err) {
+            // response.send(err, 404);
+            response.status(404).send(err);
+        } else {
+          var json = JSON.parse(data);
+
+          const unique = [...new Set(json.map(item => item.Description))];
+
+        //  for (var i = 0; i < json.length; i++) {
+            //  if (json[i].Description === request.params.id) {
+              //    response.send({
+                      result: 'Success',
+                      renewables: unique.Description
+                //  });
+              //    return;
+            //  }
+        //  }
+        //  response.send({
+        //      result: 'Failure',
+        //      renewables: null
+      //    });
+      }
+  });
+
+});
+*/
 router.get('/renewables/renewables', function(request, response) {
     console.log('Renewables called');
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
@@ -207,6 +279,12 @@ router.get('/:id', function(request, response) {
 });
 
 
+router.get('/high-tech-energy/:id', function(request, response) {
+
+    response.render('high-tech-energy/' + request.params.id, {
+        title: 'ElfComponent'
+    });
+});
 
 router.get('/renewables/:id', function(request, response) {
 
