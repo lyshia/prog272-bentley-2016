@@ -1,4 +1,4 @@
-define(function () {
+define(function() {
     //Do setup work here
 
     var about = {

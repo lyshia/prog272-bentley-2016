@@ -24,7 +24,7 @@ define(function() {
     }
 
 
-    var type = {
+    var energyTypes = {
 
         init: function() {
             //var that = this;
@@ -34,6 +34,6 @@ define(function() {
             });
         }
     };
-    return type;
+    return energyTypes;
 
 });
