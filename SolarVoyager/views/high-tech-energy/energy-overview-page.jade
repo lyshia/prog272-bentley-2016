@@ -1,5 +1,37 @@
 .jumbotron
     h1 Energy OverView
 
-        .alert.alert-success
-            pre#debug
+    .alert.alert-success
+        p#display
+
+.container
+      .panel.panel-default
+          .panel-heading Overview
+          .panel-body
+              .input-group
+                  span.input-group-btn
+                      button#minusButtonO.btn.btn-info.btn-number(type="button")
+                          span.glyphicon.glyphicon-minus
+                  input#indexInputOverview.form-control.input-number(type="number", value=0, min='0')
+                  span.input-group-btn
+                      button#plusButtonO.btn.btn-success.btn-number(type="button")
+                          span.glyphicon.glyphicon-plus
+
+              .input-group
+                  span.input-group-addon MSN
+                  input#msnView.form-control(type='text', placeholder='MSN', aria-describedby='basic-addon1')
+              .input-group
+                  span.input-group-addon YYYYMM
+                  input#yymmView.form-control(type='text', placeholder='YYYYMM', aria-describedby='basic-addon1')
+              .input-group
+                  span.input-group-addon Value
+                  input#valueView.form-control(type='text', placeholder='Value', aria-describedby='basic-addon1')
+              .input-group
+                  span.input-group-addon Column_Order
+                  input#columnView.form-control(type='text', placeholder='Column order', aria-describedby='basic-addon1')
+              .input-group
+                  span.input-group-addon Description
+                  input#descriptonView.form-control(type='text', placeholder='Description', aria-describedby='basic-addon1')
+              .input-group
+                  span.input-group-addon Unit
+                  input#unitView.form-control(type='text', placeholder='Unit', aria-describedby='basic-addon1')
