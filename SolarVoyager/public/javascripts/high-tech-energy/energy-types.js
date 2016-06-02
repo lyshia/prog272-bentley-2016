@@ -4,10 +4,21 @@ define(function() {
 
     function getEnergyType() {
         console.log("get energy type called");
-        $.getJSON('/high-tech-energy/energy-types', function(response) {
-          console.log(response);
+        $.getJSON('/', function(response) {
+          //console.log(response);
 
-          $('#debug').html(JSON.stringify(response, null, 4));
+          var arr = [];
+          console.log("array" + arr);
+          for (var i = 0; i < response.length; i++) {
+              if (!arr.contains(response[i].Description)) {
+                  arr.push(response[i].Description);
+              }
+          }
+          return arr;
+
+          console.log(arr);
+
+          $('#debug').html(JSON.stringify(arr, null, 4));
         })
 
 

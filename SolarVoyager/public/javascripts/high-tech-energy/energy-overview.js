@@ -1,19 +1,17 @@
 define(function() {
     //Do setup work here
-  //  var index = 0;
+  var index = 0;
 
     function getOverview() {
-        console.log("get overview called");
-        $.getJSON('/high-tech-energy/overview', function(response) {
-          console.log(response);
-      //    overviewList = response.overview;
-      //    showRenewable(overviewList[index]); // index?
-          $('#debug').html(JSON.stringify(response, null, 4));
-        })
 
-        /*        $.getJSON('/overview/overview', function(response) {
-                        $('#debug').html(JSON.stringify(response, null, 4));
-                    })*/
+        console.log("get overview called");
+        $.getJSON('/high-tech-energy', function(response) {
+            console.log(response);
+
+            overviewList = response.overview;
+            showRenewable(overviewList[index]); // index?
+            $('#debug').html(JSON.stringify(response, null, 4));
+        })
         .done(function() {
                 console.log("second success");
             })
@@ -25,14 +23,14 @@ define(function() {
                 console.log("complete");
             });
     }
-/*
+
     function getSimpleKeys(overview) {
         return {
             msn: overview["MSN"],
             yyyymm: overview["YYYYMM"],
             values: overview["Value"],
-            columnorder: overview["Column_Order"],
-            descriptions: overview["Description"],
+            column_order: overview["Column_Order"],
+            description: overview["Description"],
             unit: overview["Unit"]
         }
     };
@@ -42,9 +40,9 @@ define(function() {
         $('#msnView').val(overview.msn);
         $('#yymmView').val(overview.yyyymm);
         $('#valueView').val(overview.values);
-        $('#columnorderView').val(overview.columnorder);
-        $('#descriptionView').val(overview.descriptions);
-        $('#unitView').val(overview.liquidBiofuels);
+        $('#columnView').val(overview.column_order);
+        $('#descriptonView').val(overview.description);
+        $('#unitView').val(overview.unit);
 
     };
 
@@ -66,24 +64,24 @@ define(function() {
         var test = $('#indexInputOverview').val();
         indexChange(parseInt(test));
     };
-*/
+
 
     var overview = {
-       color: "Show All",
-       size: " Data",
+        color: "Show All",
+        size: " Data",
         init: function() {
             console.log(overview.color);
             //var that = this;
             $('#elf-view').load('/high-tech-energy/energy-overview-page', function() {
-               $('#display').html(overview.color + ' ' + overview.size);
-            /*   $('#plusButtonO').click({
-                   value: 1
-               }, indexButtonChange);
-               $('#minusButtonO').click({
-                   value: -1
-               }, indexButtonChange);
-               $('#indexInputOverview').change(buttonChange);
-*/
+                $('#display').html(overview.color + ' ' + overview.size);
+                $('#plusButtonO').click({
+                    value: 1
+                }, indexButtonChange);
+                $('#minusButtonO').click({
+                    value: -1
+                }, indexButtonChange);
+                $('#indexInputOverview').change(buttonChange);
+
                 getOverview();
             });
         }
