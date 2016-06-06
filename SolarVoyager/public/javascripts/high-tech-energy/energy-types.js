@@ -4,10 +4,10 @@ define(function() {
 
     function getEnergyType() {
         console.log("get energy type called");
-        $.getJSON('/', function(response) {
-          //console.log(response);
+        $.getJSON('/high-tech-energy', function(response) {
 
-          var arr = [];
+        getEnergyTypes(response);
+        /*  var arr = [];
           console.log("array" + arr);
           for (var i = 0; i < response.length; i++) {
               if (!arr.contains(response[i].Description)) {
@@ -17,8 +17,9 @@ define(function() {
           return arr;
 
           console.log(arr);
+*/
 
-          $('#debug').html(JSON.stringify(arr, null, 4));
+          $('#debug').html(JSON.stringify(response, null, 4));
         })
 
 

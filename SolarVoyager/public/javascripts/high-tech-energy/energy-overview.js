@@ -47,7 +47,7 @@ define(function() {
     };
 
     function indexChange(test) {
-        if (test < 12 && test >= 0) {
+        if (test >= 0) {
             index = test;
             $('#indexInputOverview').val(index);
             showRenewable(overviewList[index]);
