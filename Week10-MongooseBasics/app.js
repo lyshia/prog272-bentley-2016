@@ -5,10 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var databaseSettings = require('./routes/database-settings');
 var routes = require('./routes/index');
-var renewables = require('./routes/renewables');
-var highTechEnergy = require('./routes/high-tech-energy');
 var users = require('./routes/users');
 
 var app = express();
@@ -25,9 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/database-settings', databaseSettings);
-app.use('/renewables', renewables);
-app.use('/high-tech-energy', highTechEnergy);
 app.use('/', routes);
 app.use('/users', users);
 

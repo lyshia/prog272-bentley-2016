@@ -1,9 +1,14 @@
 define(function() {
     //Do setup work here
     var index = 0;
+    var useDatabase = false;
 
     function getRenewables() {
         console.log("get renewables called");
+
+        var routeType = useDatabase ? 0 : 1;
+
+        var renewableRoutes = ['/allRenewables', '/renewables'];
         $.getJSON('/renewables', function(response) {
 
             console.log(response);
