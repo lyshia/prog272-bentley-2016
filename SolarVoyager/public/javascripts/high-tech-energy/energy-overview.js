@@ -1,39 +1,40 @@
 define(function() {
     //Do setup work here
-  var index = 0;
+    'use strict';
+    var index = 0;
 
     function getOverview() {
 
-        console.log("get overview called");
+        console.log('get overview called');
         $.getJSON('/high-tech-energy', function(response) {
-            console.log(response);
+                console.log(response);
 
-            overviewList = response.overview;
-            showRenewable(overviewList[index]); // index?
-            $('#debug').html(JSON.stringify(response, null, 4));
-        })
-        .done(function() {
-                console.log("second success");
+                var overviewList = response.overview;
+                showRenewable(overviewList[index]); // index?
+                $('#debug').html(JSON.stringify(response, null, 4));
+            })
+            .done(function() {
+                console.log('second success');
             })
             .fail(function(a, b, c) {
                 console.log('Error', a, b, c);
                 $('#debug').html('Error occured: ', a.status);
             })
             .always(function() {
-                console.log("complete");
+                console.log('complete');
             });
     }
 
     function getSimpleKeys(overview) {
         return {
-            msn: overview["MSN"],
-            yyyymm: overview["YYYYMM"],
-            values: overview["Value"],
-            column_order: overview["Column_Order"],
-            description: overview["Description"],
-            unit: overview["Unit"]
-        }
-    };
+            msn: overview.MSN,
+            yyyymm: overview.YYYYMM,
+            values: overview.Value,
+            column_order: overview.Column_Order,
+            description: overview.Description,
+            unit: overview.Unit
+        };
+    }
 
     function showRenewable(overview) {
         overview = getSimpleKeys(overview);
@@ -43,8 +44,7 @@ define(function() {
         $('#columnView').val(overview.column_order);
         $('#descriptonView').val(overview.description);
         $('#unitView').val(overview.unit);
-
-    };
+    }
 
     function indexChange(test) {
         if (test >= 0) {
@@ -52,11 +52,10 @@ define(function() {
             $('#indexInputOverview').val(index);
             showRenewable(overviewList[index]);
         }
-    };
+    }
 
     var indexButtonChange = function(event) {
         var test = event.data.value + index;
-
         indexChange(test);
     };
 
@@ -65,10 +64,9 @@ define(function() {
         indexChange(parseInt(test));
     };
 
-
     var overview = {
-        color: "Show All",
-        size: " Data",
+        color: 'Show All',
+        size: ' Data',
         init: function() {
             console.log(overview.color);
             //var that = this;
@@ -87,5 +85,4 @@ define(function() {
         }
     };
     return overview;
-
 });

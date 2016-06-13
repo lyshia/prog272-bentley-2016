@@ -1,42 +1,36 @@
 define(function() {
     //Do setup work here
-  //  var index = 0;
+    'use strict';
 
     function getEnergyType() {
-        console.log("get energy type called");
+        console.log('get energy type called');
         $.getJSON('/high-tech-energy', function(response) {
 
-console.log(response);
-    //    getEnergyTypes(response);
-         var arr = [];
+            console.log(response);
+            //    getEnergyTypes(response);
+            /*        var arr = [];
 
-          for (var i = 0; i < response.length; i++) {
-              if (!arr.contains(response[i].Description)) {
-                  arr.push(response[i].Description);
-              }
-          }
-          return arr;
-
-
-          console.log("array length" + arr.length  );
-
-
-          $('#debug').html(JSON.stringify(response, null, 4));
+                    for (var i = 0; i < response.length; i++) {
+                        if (!arr.contains(response[i].Description)) {
+                            arr.push(response[i].Description);
+                        }
+                    }
+                  //  return arr;
+                    //  console.log('array length' + arr.length);*/
+            $('#debug').html(JSON.stringify(response, null, 4));
         })
 
-
         .done(function() {
-                console.log("second success");
+                console.log('second success');
             })
             .fail(function(a, b, c) {
                 console.log('Error', a, b, c);
                 $('#debug').html('Error occured: ', a.status);
             })
             .always(function() {
-                console.log("complete");
+                console.log('complete');
             });
     }
-
 
     var energyTypes = {
 
@@ -49,5 +43,4 @@ console.log(response);
         }
     };
     return energyTypes;
-
 });

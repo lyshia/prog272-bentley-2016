@@ -7,35 +7,26 @@ module.exports = function(config) {
         // base path, that will be used to resolve files and exclude
         basePath: './',
 
-        frameworks: ['jasmine', 'requirejs'],
+        frameworks: ['jasmine'],
 
         files: [
             'public/components/jquery/dist/jquery.min.js',
-            'node_modules/jasmine-jquery/lib/*.js', {
-                pattern: 'spec/test-*.js',
-                included: false
-            }, {
-                pattern: 'public/javascripts/**/*.js',
-                included: false
-            },
-            'spec/main-test.js'
+            'node_modules/jasmine-jquery/lib/*.js',
+            'public/javascripts/*.js',
+            'spec/**/*.html',
+            'spec/test*.js'
         ],
 
         // list of files to exclude
-        exclude: ['public/javascripts/main.js'],
+        exclude: [],
 
         reporters: ['spec'],
 
-        specReporter: {
-            suppressSkipped: true
-        },
+        specReporter: { suppressSkipped: true },
 
         // web server port
         port: 9876,
-
-        preprocessors: {
-            '**/*.html': []
-        },
+        preprocessors: { '**/*.html': [] },
 
         // enable / disable colors in the output (reporters and logs)
         colors: true,
@@ -56,10 +47,10 @@ module.exports = function(config) {
         // Set to false to watch files for changes
         singleRun: false,
 
-        //      plugins: ['karma-jasmine',
-        //          'karma-spec-reporter',
-        //          'karma-phantomjs-launcher'
-        //      ]
+        plugins: ['karma-jasmine',
+            'karma-spec-reporter',
+            'karma-phantomjs-launcher'
+        ]
 
     });
 };

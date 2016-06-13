@@ -1,15 +1,15 @@
 define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview', 'energyTypes'],
     function($, about, home, renewables, renewablesByIndex, renewablesByYear, overview, energyTypes) {
         //Do setup work here
-
+        'use strict';
         function showBar() {
             //console.log('Show Bar Clicks called now');
             $('#display2').html('bar');
         }
 
         var control = {
-            color: "black",
-            size: "unisize",
+            color: 'black',
+            size: 'unisize',
             setup: function() {
                 $(document).on('click', '#showClick', showBar);
                 $('#display2').html(control.color + ' - ' + control.size);
@@ -26,8 +26,5 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
                 home.init();
             }
         };
-
         return control;
-
-
     });

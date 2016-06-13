@@ -5,8 +5,7 @@ var connect = {
     connected: false,
 
     simpleConnect: function() {
-        'use strict';
-        var url = 'mongodb://127.0.0.1:27017/test';
+        var url= 'mongodb://127.0.0.1:27017/test';
         connect.connected = true;
         mongoose.connect(url);
         var db = mongoose.connection;
@@ -17,13 +16,12 @@ var connect = {
         });
     },
 
-    mlabConnect: function() {
-        'use strict';
+    mlabConnect:function() {
         connect.connected = true;
-        var userName = 'foobar';
-        var password = 'foo';
-        var siteAndPort = 'ds011281.mlab.com:11281';
-        var databaseName = 'prob272_bentley';
+        var userName = 'csc';
+        var password = 'Re*lD*t*22#';
+        var siteAndPort = 'ds049848.mongolab.com:49848';
+        var databaseName = 'elvenlab01';
         var url = 'mongodb://' + userName + ':' + password + '@' + siteAndPort + '/' + databaseName;
         console.log(url);
         mongoose.connect(url);
@@ -38,14 +36,14 @@ var connect = {
     },
 
     doConnection: function(useSimple) {
-        'use strict';
-        var connectType = useSimple || false;
+        var connectType = useSimple || true;
         if (connectType) {
             connect.simpleConnect();
         } else {
             connect.mlabConnect();
         }
     }
+
 };
 
 module.exports = connect;

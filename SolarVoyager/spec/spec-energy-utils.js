@@ -16,11 +16,11 @@ describe('Elvenware Energy Utils Suite', function() {
     });
 
     it('objectToArray confirm works', function() {
-    //  console.log(renewables);
+        //  console.log(renewables);
         var sortedArray = energyUtils.objectToArray(renewables[0]);
         for (var i = 0; i < sortedArray.length - 1; i++) {
-          console.log(sortedArray[i]);
-           expect(sortedArray[i][1]).toBeLessThan(sortedArray[i + 1][1]);
+            console.log(sortedArray[i]);
+            expect(sortedArray[i][1]).toBeLessThan(sortedArray[i + 1][1]);
         }
     });
 

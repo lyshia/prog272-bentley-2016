@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-
 router.get('/', function(request, response) {
+    'use strict';
     console.log('Renewables called');
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
         if (err) {
@@ -21,6 +21,7 @@ router.get('/', function(request, response) {
 });
 
 router.get('/renewableByIndex/:id', function(request, response) {
+    'use strict';
     console.log('Renewables by index called,', request.params.id);
 
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
@@ -46,8 +47,8 @@ router.get('/renewableByIndex/:id', function(request, response) {
 
 });
 
-
 router.get('/renewableByYear/:id', function(request, response) {
+    'use strict';
     console.log('Renewables by year called,', request.params.id);
 
     fs.readFile('data/Renewable.json', 'utf8', function(err, data) {
@@ -76,15 +77,11 @@ router.get('/renewableByYear/:id', function(request, response) {
 
 });
 
-
 router.get('/:id', function(request, response) {
-
+    'use strict';
     response.render('renewables/' + request.params.id, {
         title: 'ElfComponent'
     });
 });
-
-
-
 
 module.exports = router;

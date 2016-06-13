@@ -1,4 +1,3 @@
-
 requirejs.config({
     baseUrl: '.',
     paths: {
@@ -16,9 +15,9 @@ requirejs.config({
 });
 
 requirejs(['jquery'], function($) {
-
-    requirejs(['bootstrap', 'about','home','control', 'renewables', 'renewablesByIndex', 'renewablesByYear','overview', 'energyTypes'],
-     function(bootstrap,about,home,control, renewables, renewablesByIndex, renewablesByYear, overview, energyTypes) {
-        control.init();
-    });
+    'use strict';
+    requirejs(['bootstrap', 'about', 'home', 'control', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview', 'energyTypes'],
+        function(bootstrap, about, home, control, renewables, renewablesByIndex, renewablesByYear, overview, energyTypes) {
+            control.init();
+        });
 });

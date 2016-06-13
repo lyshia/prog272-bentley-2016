@@ -52,14 +52,11 @@ module.exports = function(grunt) {
             }
         },
 
-        exec: {
-
-            stripExtends: {
-                cmd: function() {
-                    return 'sed "/extend/d" views/index.jade > views/fixture.jade';
-                }
+        shell: {
+            fixture: {
+                command: 'sed "/extend/d" views/index.jade > views/fixture.jade'
             }
-        },
+        }, 
 
         karma: {
             karma: {
@@ -75,7 +72,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.registerTask('fixture', ['exec:stripExtends', 'jade', 'karma']);
     grunt.registerTask('beautify', ['jsbeautifier']);
     grunt.registerTask('check', ['beautify', 'jscs', 'jshint']);
