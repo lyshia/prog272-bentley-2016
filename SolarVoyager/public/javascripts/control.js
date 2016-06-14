@@ -2,6 +2,7 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
     function($, about, home, renewables, renewablesByIndex, renewablesByYear, overview, energyTypes) {
         //Do setup work here
         'use strict';
+
         function showBar() {
             //console.log('Show Bar Clicks called now');
             $('#display2').html('bar');
