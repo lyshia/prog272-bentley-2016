@@ -3,7 +3,6 @@ var router = express.Router();
 var scientists = require('../models/scientists');
 var allMongo = require('./all-mongo');
 var connect = require('./connect');
-//var mongoose = require('mongoose');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,27 +15,32 @@ router.get('/', function(req, res, next) {
 var connected = false;
 
 router.get('/all-data', function(request, response) {
-    console.log("AllData route invoked.");
+    'use strict';
+    console.log('AllData route invoked.');
     if (!connect.connected) {
         connect.doConnection();
     }
 
-    console.log("About to find scientists.");
-    scientists.find({}, function(err, data) {
-        console.log(data.length);
-        console.log(data[0]);
-        allData = data;
+    console.log('About to find scientists.');
+    scientists.find({}, function(err, allData) {
+        console.log(allData.length);
+        console.log(allData[0]);
 
         allMongo.writeData('scientists.json', allData);
 
         response.send({
             result: 'Success',
-            allData: data
+            allData: allData
         });
     });
 });
 
 router.get('/emptyCollection', function(request, response) {
+    'use strict';
+    if (!connect.connected) {
+        connect.doConnection();
+    }
+
     scientists.remove({}, function(err) {
         if (err) {
             response.send({
@@ -52,12 +56,13 @@ router.get('/emptyCollection', function(request, response) {
 });
 
 router.get('/insertValidCollection', function(request, response) {
+    'use strict';
     allMongo.readDataAndInsert(response);
 });
 
 router.get('/:id', function(request, response) {
+    'use strict';
     response.render(request.params.id, {});
 });
-
 
 module.exports = router;

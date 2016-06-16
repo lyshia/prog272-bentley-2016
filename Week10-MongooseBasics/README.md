@@ -1,2 +1,2 @@
-# Week10-MongooseBasics
+# MongooseBasics
 by Charlie Calvert

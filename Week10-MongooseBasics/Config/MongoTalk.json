@@ -1,7 +1,0 @@
-{
-    "urls": [
-        "mongodb://127.0.0.1:27017/test",
-        "mongodb://USERNAME:PASSWORD@dsXXX.mongolab.som:XXXX/DATABASE"
-    ],
-    "selectedUrl": 0
-}
