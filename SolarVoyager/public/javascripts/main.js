@@ -10,14 +10,14 @@ requirejs.config({
         renewablesByIndex: 'javascripts/renewables/renewables-by-index',
         renewablesByYear: 'javascripts/renewables/renewables-by-year',
         overview: 'javascripts/high-tech-energy/energy-overview',
-        energyTypes: 'javascripts/high-tech-energy/energy-types'
+        msnTypes: 'javascripts/high-tech-energy/energy-types'
     }
 });
 
 requirejs(['jquery'], function($) {
     'use strict';
-    requirejs(['bootstrap', 'about', 'home', 'control', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview', 'energyTypes'],
-        function(bootstrap, about, home, control, renewables, renewablesByIndex, renewablesByYear, overview, energyTypes) {
+    requirejs(['bootstrap', 'about', 'home', 'control', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview', 'msnTypes'],
+        function(bootstrap, about, home, control, renewables, renewablesByIndex, renewablesByYear, overview, msnTypes) {
             control.init();
         });
 });

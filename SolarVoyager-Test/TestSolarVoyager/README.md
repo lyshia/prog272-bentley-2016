@@ -1,2 +1,0 @@
-# TestSolarVoyager
-by Charlie Calvert

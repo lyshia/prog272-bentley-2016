@@ -3,6 +3,7 @@ define(function() {
     'use strict';
     var index = 0;
     var useDatabase = false;
+    var renewablesList;
 
     function getRenewables() {
         console.log('get renewables called');
@@ -12,7 +13,7 @@ define(function() {
         var renewableRoutes = ['/allRenewables', '/renewables'];
         $.getJSON('/renewables', function(response) {
                 console.log(response);
-                var renewablesList = response.renewables;
+                renewablesList = response.renewables;
                 showRenewable(renewablesList[index]); // index?
                 $('#debug').html(JSON.stringify(response, null, 4));
             })

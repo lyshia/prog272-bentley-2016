@@ -1,2 +1,0 @@
-# MongooseBasics
-by Charlie Calvert

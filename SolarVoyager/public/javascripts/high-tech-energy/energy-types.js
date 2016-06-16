@@ -7,16 +7,7 @@ define(function() {
         $.getJSON('/high-tech-energy', function(response) {
 
             console.log(response);
-            //    getEnergyTypes(response);
-            /*        var arr = [];
 
-                    for (var i = 0; i < response.length; i++) {
-                        if (!arr.contains(response[i].Description)) {
-                            arr.push(response[i].Description);
-                        }
-                    }
-                  //  return arr;
-                    //  console.log('array length' + arr.length);*/
             $('#debug').html(JSON.stringify(response, null, 4));
         })
 

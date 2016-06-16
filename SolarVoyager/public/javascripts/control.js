@@ -1,5 +1,5 @@
-define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview', 'energyTypes'],
-    function($, about, home, renewables, renewablesByIndex, renewablesByYear, overview, energyTypes) {
+define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewablesByYear', 'overview', 'msnTypes'],
+    function($, about, home, renewables, renewablesByIndex, renewablesByYear, overview, msnTypes) {
         //Do setup work here
         'use strict';
 
@@ -23,7 +23,7 @@ define(['jquery', 'about', 'home', 'renewables', 'renewablesByIndex', 'renewable
                 $('.renewablesByYearMenu').click(renewablesByYear.init);
                 $('.aboutMenu').click(about.init);
                 $('.highTechEnergyOverviewMenu').click(overview.init);
-                $('.highTechEnergyTypesMenu').click(energyTypes.init);
+                $('.highTechEnergyTypesMenu').click(msnTypes.init);
                 home.init();
             }
         };
