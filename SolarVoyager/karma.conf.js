@@ -5,20 +5,25 @@ module.exports = function(config) {
 
     config.set({
         // base path, that will be used to resolve files and exclude
-        basePath: './',
+        basePath: '.',
 
         frameworks: ['jasmine', 'requirejs'],
 
         files: [
             'public/components/jquery/dist/jquery.min.js',
+            'public/components/requirejs/require.js',
             'node_modules/jasmine-jquery/lib/*.js', {
                 pattern: 'spec/test-*.js',
+                included: false
+            }, {
+                pattern: 'spec/data/client-renewables.js',
                 included: false
             }, {
                 pattern: 'public/javascripts/**/*.js',
                 included: false
             },
-            'spec/main-test.js'
+            'spec/main-test.js',
+            '*.html'
         ],
 
         // list of files to exclude
@@ -31,7 +36,7 @@ module.exports = function(config) {
         },
 
         // web server port
-        port: 9876,
+        port: 30025,
 
         preprocessors: {
             '**/*.html': []
@@ -54,12 +59,7 @@ module.exports = function(config) {
         captureTimeout: 20000,
 
         // Set to false to watch files for changes
-        singleRun: false,
-
-        //      plugins: ['karma-jasmine',
-        //          'karma-spec-reporter',
-        //          'karma-phantomjs-launcher'
-        //      ]
+        singleRun: false
 
     });
 };

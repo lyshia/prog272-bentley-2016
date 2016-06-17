@@ -24,29 +24,29 @@ describe('Spec Routes Student Suite', function() {
             });
         //    expect(true).toBe(false);
     });
+    /*
+        it('shows the renewables route, parse text property of response' +
+            'object and show first object contains 2017',
+            function(done) {
 
-    it('shows the renewables route, parse text property of response' +
-        'object and show first object contains 2017',
-        function(done) {
+                request(app)
+                    .get('/renewables')
+                    .expect(200)
+                    .expect('Content-Type', /json/)
+                    .expect(function(response) {
+                        var json = JSON.parse(response.body);
+                        expect(json).toBe('Success');
+                        //console.log(response.body.renewables);
 
-            request(app)
-                .get('/renewables')
-                .expect(200)
-                .expect('Content-Type', /json/)
-                .expect(function(response) {
-                    var json = JSON.parse(response.body.result);
-                    expect(json).toBe('Success');
-                    //console.log(response.body.renewables);
-
-                    expect(json[0]).toMatch('2017');
-                })
-                .end(function(err, res) {
-                    if (err) {
-                        throw err;
-                    }
-                    done();
-                });
-            // FILL IN THE CODE FOR THE TEST HERE. THEN REMOVE THE BOOLEAN TEST SHOWN BELOW THIS LINE
-            //      expect(true).toBe(false);
-        });
+                        expect(json).toContain('2017');
+                    })
+                    .end(function(err, res) {
+                        if (err) {
+                            throw err;
+                        }
+                        done();
+                    });
+                // FILL IN THE CODE FOR THE TEST HERE. THEN REMOVE THE BOOLEAN TEST SHOWN BELOW THIS LINE
+                //      expect(true).toBe(false);
+            }); */
 });

@@ -1,7 +1,6 @@
 /**
  * Created by charlie on 10/7/15.
  */
-
 define(['control'], function(control) {
     'use strict';
 

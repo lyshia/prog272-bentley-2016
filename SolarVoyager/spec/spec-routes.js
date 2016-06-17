@@ -1,7 +1,6 @@
 /**
  * Created by charlie on 5/8/16.
  */
-
 var request = require('supertest');
 var app = require('../app');
 
@@ -45,7 +44,7 @@ describe('Elvenware Spec Routes Suite', function() {
 
     it('shows we can get renewables objects by index', function(done) {
         request(app)
-            .get('/renewableByIndex/0')
+            .get('/renewables/renewableByIndex/0')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(function(response) {
@@ -63,7 +62,7 @@ describe('Elvenware Spec Routes Suite', function() {
 
     it('shows we can get renewables objects by year', function(done) {
         request(app)
-            .get('/renewableByYear/2012')
+            .get('/renewables/renewableByYear/2012')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(function(response) {
@@ -81,65 +80,3 @@ describe('Elvenware Spec Routes Suite', function() {
     });
 
 });
-/*
-    it('renewables', function (done) {
-        request(app)
-            .get('/renewables')
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .end(function (err, res) {
-                if (err) { throw err; }
-                done();
-            });
-    });
-
-    it('renewables first object text', function (done) {
-        request(app)
-            .get('/renewables')
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .expect(function(response) {
-                //console.log(typeof response.text);
-                var json = JSON.parse(response.text);
-                //console.log(JSON.stringify(json, null, 4));
-                expect(json.renewables[0].Year).toBe('2017');
-            })
-            .end(function (err, res) {
-                if (err) { throw err; }
-                done();
-            });
-    });
-
-    it('renewables object body', function (done) {
-        request(app)
-            .get('/renewables')
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .expect(function(response) {
-                expect(response.body.result).toBe('Success');
-                //console.log(response.body.renewables);
-                expect(response.body.renewables[0].Year).toBe('2017');
-            })
-            .end(function (err, res) {
-                if (err) { throw err; }
-                done();
-            });
-    });
-
-    it('renewables body first object only', function (done) {
-        request(app)
-            .get('/renewables/1')
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .expect(function(response) {
-                expect(response.body.result).toBe('Success');
-                //console.log(response.body.renewables);
-                expect(response.body.renewables.Year).toBe('2016');
-            })
-            .end(function (err, res) {
-                if (err) { throw err; }
-                done();
-            });
-    });
-});
-*/
